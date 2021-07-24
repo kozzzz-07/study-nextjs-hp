@@ -1,0 +1,14 @@
+.greeting {
+  display: flex;
+  align-items: center;
+}
+
+/* next/imageが自動的にdivによるラッパーを生成するため
+   それを考慮したセレクタが必要 */
+.greeting .avatar > div {
+  border-radius: 50%;
+}
+
+.greeting .message {
+  margin-left: 16px;
+}

@@ -1,8 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 import "../styles/global.css";
 import styles from "../styles/App.module.css";
 
 const MyApp = ({ Component, pageProps }) => {
+
+  const { asPath } = useRouter();
+
   return (
     <div className={styles.wrapper}>
       {/* Container */}
@@ -15,10 +20,10 @@ const MyApp = ({ Component, pageProps }) => {
         {/* Nav */}
         <nav className={styles.nav}>
           <ul>
-            <li>
+            <li className={asPath === "/" ? styles.current : null}>
               <Link href="/">Home</Link>
             </li>
-            <li>
+            <li className={asPath.startsWith("/blog") ? styles.current : null}>
               <Link href="/blog">Blog</Link>
             </li>
           </ul>
